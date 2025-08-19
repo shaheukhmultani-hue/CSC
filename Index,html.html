@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>उपन जन सुविधा केंद्र | CSC All Services</title>
+  <meta name="description" content="CSC की सभी सेवाएँ — आधार, पैन, वोटर, राशन कार्ड, जन्म/मृत्यु प्रमाण पत्र, बैंकिंग, ई-श्रम, सरकारी योजनाएँ और अधिक।">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg1:#0f172a; /* slate-900 */
+      --bg2:#1e293b; /* slate-800 */
+      --pri:#22c55e; /* green-500 */
+      --sec:#06b6d4; /* cyan-500 */
+      --acc:#f59e0b; /* amber-500 */
+      --txt:#e2e8f0; /* slate-200 */
+      --mut:#94a3b8; /* slate-400 */
+      --card: rgba(255,255,255,0.08);
+      --glass: rgba(255,255,255,0.12);
+      --shadow: 0 10px 30px rgba(0,0,0,0.35);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Noto Sans,Ubuntu,"Helvetica Neue",Arial,sans-serif;background:
+      radial-gradient(1200px 600px at -10% -10%, #0ea5e9 0%, rgba(14,165,233,0) 40%),
+      radial-gradient(900px 500px at 110% 20%, #22c55e 0%, rgba(34,197,94,0) 45%),
+      radial-gradient(1000px 600px at 50% 120%, #f59e0b 0%, rgba(245,158,11,0) 50%),
+      linear-gradient(120deg,var(--bg1),var(--bg2)); color:var(--txt);}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1100px;margin:0 auto;padding:24px}
+    .nav{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,var(--pri),var(--sec));display:grid;place-items:center;box-shadow:var(--shadow)}
+    .logo svg{filter:drop-shadow(0 6px 10px rgba(0,0,0,0.4))}
+    .title{font-weight:800;letter-spacing:.3px;font-size:clamp(18px,3vw,28px)}
+    .whatsapp-btn{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#031b0d;padding:12px 18px;border-radius:999px;font-weight:700;box-shadow:0 12px 24px rgba(37,211,102,.35);transform:translateY(0);transition:.2s}
+    .whatsapp-btn:hover{transform:translateY(-2px);box-shadow:0 16px 28px rgba(37,211,102,.42)}
+    .cta-wrap{display:flex;gap:12px;flex-wrap:wrap}
+    .hero{margin-top:24px;border-radius:28px;background:linear-gradient(135deg,rgba(255,255,255,.08),rgba(255,255,255,.04));backdrop-filter:blur(8px);box-shadow:var(--shadow);overflow:hidden}
+    .hero-inner{display:grid;grid-template-columns:1.1fr .9fr;gap:10px;padding:26px}
+    .hero h1{font-size:clamp(26px,4.5vw,44px);line-height:1.15;margin:0 0 8px}
+    .hero p{color:var(--mut);margin:0 0 16px}
+    .badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+    .badge{font-size:12px;padding:6px 10px;border-radius:999px;background:var(--card);border:1px solid rgba(255,255,255,.08)}
+    .card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px}
+    @media(max-width:900px){.hero-inner{grid-template-columns:1fr}.card-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:600px){.card-grid{grid-template-columns:1fr}}
+    .card{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:18px;box-shadow:var(--shadow);transition:.25s transform}
+    .card:hover{transform:translateY(-4px)}
+    .card h3{margin:0 0 10px;font-size:18px}
+    .list{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+    .list li{display:flex;gap:8px;align-items:flex-start}
+    .tick{width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,var(--pri),var(--sec));display:grid;place-items:center;flex:0 0 22px}
+    .tick svg{width:14px;height:14px}
+    .section-title{margin:26px 0 6px;font-size:clamp(20px,3.2vw,30px)}
+    .cta-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    @media(max-width:900px){.cta-cards{grid-template-columns:1fr 1fr}}
+    @media(max-width:600px){.cta-cards{grid-template-columns:1fr}}
+    .cta{background:linear-gradient(135deg,rgba(34,197,94,.12),rgba(6,182,212,.12));border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:18px}
+    .cta strong{display:block;font-size:18px;margin-bottom:6px}
+    .footer{margin-top:26px;padding:18px;text-align:center;color:var(--mut)}
+    .float-wa{position:fixed;right:18px;bottom:18px;z-index:50}
+    .float-wa a{width:60px;height:60px;display:grid;place-items:center;border-radius:50%;background:#25D366;color:#031b0d;box-shadow:0 16px 34px rgba(37,211,102,.45);font-weight:800}
+    .phone-link{display:inline-flex;align-items:center;gap:8px;background:var(--glass);padding:10px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.1)}
+    .divider{height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent);margin:8px 0 4px}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav class="nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M4 12a8 8 0 1016 0 8 8 0 10-16 0z" fill="white" opacity=".25"/>
+            <path d="M7 12h10M12 7v10" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <div class="title">उपन जन सुविधा केंद्र</div>
+          <div class="phone-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+              <path d="M3.654 1.328a.678.678 0 01.58-.326h2.02c.27 0 .515.164.6.415l.845 2.534a.678.678 0 01-.168.69L6.29 6.3a11.42 11.42 0 004.408 4.408l1.66-1.241a.678.678 0 01.69-.168l2.534.845c.251.084.415.33.415.6v2.02a.678.678 0 01-.326.58l-1.2.8c-.2.133-.45.166-.676.086a17.55 17.55 0 01-7.02-4.52 17.55 17.55 0 01-4.52-7.02.858.858 0 01.086-.676l.8-1.2z"/>
+            </svg>
+            <a href="tel:+918401000652">+91 8401000652</a>
+          </div>
+        </div>
+      </div>
+      <div class="cta-wrap">
+        <a class="whatsapp-btn" href="https://wa.me/918401000652?text=नमस्ते!%20मुझे%20CSC%20सेवा%20चाहिए।" target="_blank" rel="noopener">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.52 3.48A11.76 11.76 0 0012.01 0C5.4 0 .03 5.37.03 11.98c0 2.11.55 4.15 1.59 5.96L0 24l6.23-1.62a12 12 0 005.78 1.45h.01c6.61 0 11.98-5.37 11.98-11.98a11.9 11.9 0 00-3.48-8.37zM12.02 21.2h-.01a9.2 9.2 0 01-4.7-1.28l-.34-.2-3.7.96.99-3.6-.22-.37a9.17 9.17 0 01-1.4-4.87c0-5.07 4.13-9.2 9.2-9.2a9.15 9.15 0 016.51 2.7 9.15 9.15 0 012.7 6.5c0 5.08-4.13 9.21-9.21 9.21zm5.27-6.9c-.29-.14-1.7-.84-1.96-.93-.27-.1-.47-.14-.67.14-.2.29-.77.93-.95 1.12-.18.2-.35.22-.64.08-.29-.14-1.22-.45-2.33-1.44-.86-.76-1.44-1.7-1.61-1.99-.17-.29-.02-.45.13-.6.13-.13.29-.35.43-.52.14-.17.18-.29.28-.49.09-.2.05-.37-.02-.52-.07-.14-.67-1.63-.92-2.24-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.79.37-.27.29-1.04 1.02-1.04 2.5 0 1.47 1.07 2.9 1.22 3.11.15.2 2.1 3.2 5.1 4.49.71.31 1.27.49 1.7.62.71.23 1.36.2 1.87.12.57-.09 1.7-.69 1.94-1.36.24-.67.24-1.25.17-1.36-.07-.11-.26-.18-.55-.32z"/></svg>
+          WhatsApp
+        </a>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-inner">
+        <div>
+          <h1>CSC की सभी सेवाएँ, एक ही जगह</h1>
+          <p>आधार, पैन, वोटर, राशन कार्ड, जन्म/मृत्यु प्रमाण, ई-श्रम, बैंकिंग, सरकारी योजनाएँ, टिकट बुकिंग और बहुत कुछ — अब तेज़, सरल और भरोसेमंद सेवा।</p>
+          <div class="badges">
+            <span class="badge">⏱️ उसी दिन कार्य</span>
+            <span class="badge">📍 लोकल विश्वसनीय सेवा</span>
+            <span class="badge">🧾 रिसीट/ट्रैकिंग</span>
+            <span class="badge">📲 WhatsApp सपोर्ट</span>
+          </div>
+          <div class="divider"></div>
+          <div class="cta-cards" style="margin-top:12px">
+            <div class="cta"><strong>तुरंत सहायता चाहिए?</strong> अभी WhatsApp करें: <a class="whatsapp-btn" style="padding:8px 12px" href="https://wa.me/918401000652?text=नमस्ते!%20मुझे%20CSC%20सेवा%20चाहिए।" target="_blank" rel="noopener">चैट शुरू करें</a></div>
+            <div class="cta"><strong>कॉल करें</strong> समय: 9am–8pm <br/><a class="phone-link" href="tel:+918401000652">+91 8401000652</a></div>
+            <div class="cta"><strong>डॉक्यूमेंट सहायता</strong> फ़ॉर्म/फोटो/स्कैन की मदद भी उपलब्ध</div>
+          </div>
+        </div>
+        <div>
+          <div class="card">
+            <h3>टॉप सेवाएँ</h3>
+            <ul class="list">
+              <li><span class="tick"><svg viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-6-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>आधार अपडेट: नाम, जन्म तिथि, पता, मोबाइल</li>
+              <li><span class="tick"><svg viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-6-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>पैन कार्ड: नया, इंस्टेंट e-PAN, सुधार</li>
+              <li><span class="tick"><svg viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-6-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>जन्म/मृत्यु प्रमाण पत्र</li>
+              <li><span class="tick"><svg viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-6-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>वोटर आईडी/EPIC, ट्रांसफर/करैक्शन</li>
+              <li><span class="tick"><svg viewBox="0 0 24 24  fill='none'"><path d="M20 7L10 17l-6-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>राशन कार्ड: नया/जोड़-घटाव/लिंकिंग</li>
+              <li><span class="tick"><svg viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-6-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>आय/जाति/निवास प्रमाण पत्र</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <h2 class="section-title">CSC सेवाएँ (पूर्ण सूची)</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3>आधार सेवाएँ</h3>
+        <ul class="list">
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-6-6" stroke="#fff" stroke-width="2"/></svg></span>नाम/पता/जन्म तिथि/मोबाइल अपडेट</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-6-6" stroke="#fff" stroke-width="2"/></svg></span>पीडीएफ डाउनलोड/कलर प्रिंट</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-6-6" stroke="#fff" stroke-width="2"/></svg></span>बायोमेट्रिक/मोबाइल लिंकिंग सहायता</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>PAN सेवाएँ</h3>
+        <ul class="list">
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-6-6" stroke="#fff" stroke-width="2"/></svg></span>इंस्टेंट e-PAN (आधार से)</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-6-6" stroke="#fff" stroke-width="2"/></svg></span>नया पैन/करैक्शन/रीप्रिंट</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-6-6" stroke="#fff" stroke-width="2"/></svg></span>PAN–Aadhaar लिंकिंग स्थिति</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>वोटर/निवडंक</h3>
+        <ul class="list">
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-6-6" stroke="#fff" stroke-width="2"/></svg></span>नई रजिस्ट्रेशन/शिफ्टिंग</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-6-6" stroke="#fff" stroke-width="2"/></svg></span>नाम/पता सुधार</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-6-6" stroke="#fff" stroke-width="2"/></svg></span>EPIC डाउनलोड/प्रिंट</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>राशन कार्ड</h3>
+        <ul class="list">
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-6-6" stroke="#fff" stroke-width="2"/></svg></span>नया/सदस्य जोड़ना-निकालना</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-6-6" stroke="#fff" stroke-width="2"/></svg></span>NFSA/State पोर्टल सहायता</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-6-6" stroke="#fff" stroke-width="2"/></svg></span>आधार सीडिंग/स्टेटस</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>प्रमाण पत्र</h3>
+        <ul class="list">
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-6-6" stroke="#fff" stroke-width="2"/></svg></span>आय/जाति/निवास</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-6-6" stroke="#fff" stroke-width="2"/></svg></span>जन्म/मृत्यु/विवाह</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-6-6" stroke="#fff" stroke-width="2"/></svg></span>चरित्र/नॉन-क्रीमी लेयर</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>बैंकिंग/सेवा+</h3>
+        <ul class="list">
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-6-6" stroke="#fff" stroke-width="2"/></svg></span>आधार एनेबल्ड पेमेंट (AEPS)</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-6-6" stroke="#fff" stroke-width="2"/></svg></span>माइक्रो एटीएम/मनी ट्रांसफर</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-6-6" stroke="#fff" stroke-width="2"/></svg></span>बीमा/फास्टैग/बिल भुगतान</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>सरकारी योजनाएँ</h3>
+        <ul class="list">
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-6-6" stroke="#fff" stroke-width="2"/></svg></span>PM–Kisan, Ayushman, eShram</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-6-6" stroke="#fff" stroke-width="2"/></svg></span>पेंशन/Scholarship आवेदन</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-6-6" stroke="#fff" stroke-width="2"/></svg></span>लाभार्थी स्थिति जाँच</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>टिकट/बुकिंग</h3>
+        <ul class="list">
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-6-6" stroke="#fff" stroke-width="2"/></svg></span>रेल/बस/फ्लाइट टिकट</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-6-6" stroke="#fff" stroke-width="2"/></svg></span>पासपोर्ट/पीसीसी सहायता</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-6-6" stroke="#fff" stroke-width="2"/></svg></span>इवेंट/होटल बुकिंग</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>डिजिटल सेवाएँ</h3>
+        <ul class="list">
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-6-6" stroke="#fff" stroke-width="2"/></svg></span>ऑनलाइन फॉर्म भरना/प्रिंट</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-6-6" stroke="#fff" stroke-width="2"/></svg></span>फोटो/स्कैन/ईमेल/लैमिनेशन</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-6-6" stroke="#fff" stroke-width="2"/></svg></span>GST/ITR/UDYAM मदद</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer">
+      © <span id="yr"></span> उपन जन सुविधा केंद्र — सभी अधिकार सुरक्षित। | WhatsApp: <a href="https://wa.me/918401000652" target="_blank" rel="noopener">+91 8401000652</a>
+    </div>
+  </div>
+
+  <div class="float-wa">
+    <a href="https://wa.me/918401000652?text=नमस्ते!%20मुझे%20CSC%20सेवा%20चाहिए।" target="_blank" rel="noopener" aria-label="WhatsApp Chat">💬</a>
+  </div>
+
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
